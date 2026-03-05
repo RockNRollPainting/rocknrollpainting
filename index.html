@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rock N Roll Painting | South Jersey's Premier Painting Contractors</title>
+  <meta name="description" content="High quality interior and exterior painting across the Jersey Shore. From beach houses to full luxury remodels, Rock N Roll Painting delivers finishes that stand out." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:  #0a0a0a;
+      --ink:    #111111;
+      --ink2:   #181818;
+      --white:  #ffffff;
+      --red:    #d92b2b;
+      --red-d:  #b82020;
+      --blue:   #1e8fc4;
+      --blue-d: #1670a0;
+      --yellow: #f0b429;
+      --yellow-d: #d49b1a;
+      --muted:  #888880;
+      --border: rgba(255,255,255,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+    /* HEADER */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 48px;
+      background: rgba(10,10,10,0.0); backdrop-filter: blur(0px);
+      transition: background 0.4s, backdrop-filter 0.4s, padding 0.3s, border-color 0.4s;
+      border-bottom: 1px solid transparent;
+    }
+    header.scrolled {
+      background: rgba(10,10,10,0.97); backdrop-filter: blur(16px);
+      padding: 8px 48px; border-bottom: 1px solid var(--border);
+    }
+    .logo-text { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:20px; letter-spacing:0.02em; text-transform:uppercase; color:var(--white); text-decoration:none; line-height:1.1; }
+    .logo-text span { color:var(--red); }
+    .footer-logo-text { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:28px; text-transform:uppercase; letter-spacing:0.02em; color:var(--white); line-height:1.1; margin-bottom:16px; }
+    .footer-logo-text span { color:var(--red); }
+    .brand-panel { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:16px; width:100%; }
+    .brand-panel-name { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:52px; text-transform:uppercase; letter-spacing:-0.01em; line-height:0.95; color:var(--white); }
+    .brand-panel-name span { color:var(--red); }
+    .brand-panel-sub { font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:13px; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); }
+    .brand-panel-bars { display:flex; gap:6px; width:160px; }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--white); }
+    .header-right { display: flex; align-items: center; gap: 20px; }
+    .phone-link { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: 0.06em; color: var(--white); text-decoration: none; opacity: 0.8; transition: opacity 0.2s; }
+    .phone-link:hover { opacity: 1; }
+    .btn { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 11px 22px; border-radius: 3px; cursor: pointer; transition: all 0.2s; border: none; outline: none; }
+    .btn-blue { background: var(--blue); color: var(--white); }
+    .btn-blue:hover { background: var(--blue-d); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(30,143,196,0.4); }
+    .btn-yellow { background: var(--yellow); color: var(--black); }
+    .btn-yellow:hover { background: var(--yellow-d); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(240,180,41,0.4); }
+    .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.35); }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
+    .btn-lg { font-size: 15px; padding: 15px 34px; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; padding: 110px 48px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 70% at 0% 50%, rgba(30,143,196,0.1) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 50% at 90% 15%, rgba(240,180,41,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse 35% 45% at 75% 85%, rgba(217,43,43,0.07) 0%, transparent 50%);
+    }
+    .hero-bg-word { position: absolute; bottom: -60px; left: -10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 300px; color: rgba(255,255,255,0.018); line-height: 1; text-transform: uppercase; pointer-events: none; user-select: none; letter-spacing: -0.03em; }
+    .hero-stripe { position: absolute; top: -80px; right: 43%; width: 2px; height: 200%; background: linear-gradient(180deg, transparent, rgba(240,180,41,0.12), transparent); transform: rotate(12deg); pointer-events: none; }
+
+    .hero-left { position: relative; z-index: 2; padding-right: 52px; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--yellow); margin-bottom: 22px; }
+    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--yellow); }
+
+    h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(52px, 6.5vw, 86px); line-height: 0.93; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 28px; }
+    .ac-blue { color: var(--blue); }
+    .ac-yellow { color: var(--yellow); }
+    .ac-red { color: var(--red); }
+
+    .hero-sub { font-size: 18px; line-height: 1.75; color: rgba(255,255,255,0.6); font-weight: 300; max-width: 480px; margin-bottom: 40px; }
+    .hero-ctas { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+    .hero-right { position: relative; z-index: 2; }
+    .estimate-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-top: 3px solid var(--blue); border-radius: 4px; padding: 36px 34px; }
+    .form-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 27px; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 4px; }
+    .form-title span { color: var(--yellow); }
+    .form-sub { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-grid .full { grid-column: 1 / -1; }
+    label { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.42); margin-bottom: 5px; }
+    input, select, textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; color: var(--white); font-family: 'Barlow', sans-serif; font-size: 15px; padding: 11px 13px; outline: none; transition: border-color 0.2s, background 0.2s; appearance: none; }
+    input:focus, select:focus, textarea:focus { border-color: var(--blue); background: rgba(30,143,196,0.07); }
+    select option { background: #1a1a1a; }
+    textarea { resize: vertical; min-height: 80px; }
+    .form-submit { margin-top: 16px; }
+    .form-submit .btn { width: 100%; text-align: center; padding: 15px; font-size: 15px; }
+    .form-micro { text-align: center; font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+    /* SECTIONS */
+    section { padding: 100px 48px; }
+    .section-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+    .tag-blue   { color: var(--blue);   } .tag-blue::before   { content:''; display:block; width:24px; height:2px; background:var(--blue);   }
+    .tag-yellow { color: var(--yellow); } .tag-yellow::before { content:''; display:block; width:24px; height:2px; background:var(--yellow); }
+    .tag-red    { color: var(--red);    } .tag-red::before    { content:''; display:block; width:24px; height:2px; background:var(--red);    }
+    h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(38px, 4.5vw, 62px); letter-spacing: -0.01em; text-transform: uppercase; line-height: 0.96; }
+    .div-blue   { width:48px; height:3px; background:var(--blue);   margin:18px 0 28px; }
+    .div-yellow { width:48px; height:3px; background:var(--yellow); margin:18px 0 28px; }
+    .div-red    { width:48px; height:3px; background:var(--red);    margin:18px 0 28px; }
+
+    /* WHY */
+    .why { background: var(--ink2); }
+    .why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .body-copy { margin-top: 22px; font-size: 17px; line-height: 1.85; color: rgba(255,255,255,0.6); font-weight: 300; }
+    .body-copy strong { color: var(--white); font-weight: 500; }
+    .multi-cta { margin-top: 38px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .benefit-item { padding: 22px 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); transition: background 0.2s, border-color 0.2s; }
+    .benefit-item:hover { background: rgba(30,143,196,0.06); border-color: rgba(30,143,196,0.22); }
+    .benefit-bar { width: 28px; height: 4px; border-radius: 2px; margin-bottom: 14px; }
+    .bar-blue { background: var(--blue); } .bar-yellow { background: var(--yellow); } .bar-red { background: var(--red); }
+    .benefit-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 5px; }
+    .benefit-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+    /* AREAS */
+    .areas { background: var(--ink); }
+    .areas-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .areas-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 28px; }
+    .area-item { display: flex; align-items: center; gap: 10px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+    .area-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .dot-blue { background: var(--blue); } .dot-yellow { background: var(--yellow); }
+
+    .map-panel { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07); border-radius: 4px; padding: 48px 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 340px; }
+    .map-nj { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 100px; letter-spacing: -0.04em; line-height: 1; background: linear-gradient(135deg, var(--blue), var(--yellow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 12px; }
+    .map-sub { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; }
+    .county-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .county-tag { padding: 6px 14px; border-radius: 2px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .ct-blue   { background: rgba(30,143,196,0.15); border:1px solid rgba(30,143,196,0.3); color:var(--blue);   }
+    .ct-yellow { background: rgba(240,180,41,0.12);  border:1px solid rgba(240,180,41,0.3);  color:var(--yellow); }
+    .ct-red    { background: rgba(217,43,43,0.12);   border:1px solid rgba(217,43,43,0.3);   color:var(--red);    }
+
+    /* ABOUT */
+    .about { background: var(--ink2); position: relative; overflow: hidden; }
+    .about::before { content:''; position:absolute; top:0; right:0; width:45%; height:100%; background: radial-gradient(ellipse at 80% 40%, rgba(30,143,196,0.08) 0%, transparent 60%); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 2; }
+    .logo-display { display:flex; align-items:center; justify-content:center; background:var(--black); border-radius:6px; padding:32px; border:1px solid rgba(255,255,255,0.07); }
+    .logo-display img { width:100%; max-width:340px; height:auto; }
+
+    /* CTA BAND */
+    .cta-band { background: linear-gradient(135deg, #155f85, var(--blue-d), #155f85); padding: 80px 48px; text-align: center; position: relative; overflow: hidden; }
+    .cta-band::before { content:''; position:absolute; inset:0; background: linear-gradient(90deg, transparent, rgba(240,180,41,0.07), transparent); }
+    .cta-band h2 { margin-bottom: 16px; }
+    .cta-band p { font-size: 18px; color: rgba(255,255,255,0.8); font-weight: 300; margin-bottom: 36px; }
+
+    /* FOOTER */
+    footer { background: #070707; border-top: 1px solid rgba(255,255,255,0.07); padding: 64px 48px 40px; }
+    .footer-accent-bar { height: 3px; background: linear-gradient(90deg, var(--blue), var(--yellow), var(--red)); margin-bottom: 40px; border-radius: 2px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .logo-img { height: 52px; width: auto; display: block; transition: height 0.3s; }
+    header.scrolled .logo-img { height: 42px; }
+    .footer-logo-img { height: 72px; width: auto; margin-bottom: 16px; display: block; }
+    .footer-desc { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 260px; }
+    .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.32); margin-bottom: 20px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; font-size: 14px; color: rgba(255,255,255,0.5); }
+    .footer-contact-item strong { color: var(--white); font-weight: 500; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 28px; font-size: 13px; color: rgba(255,255,255,0.28); }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+    .fade-up { animation: fadeUp 0.7s ease forwards; }
+    .d1 { animation-delay:0.05s; opacity:0; } .d2 { animation-delay:0.2s; opacity:0; }
+    .d3 { animation-delay:0.35s; opacity:0; } .d4 { animation-delay:0.5s; opacity:0; }
+
+    @media (max-width: 900px) {
+      header { padding: 12px 20px; } header.scrolled { padding: 8px 20px; }
+      nav { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 95px 20px 56px; gap: 44px; min-height: auto; }
+      .hero-left { padding-right: 0; }
+      .why-inner, .areas-inner, .about-inner { grid-template-columns: 1fr; gap: 44px; }
+      section { padding: 72px 20px; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      footer { padding: 48px 20px 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .cta-band { padding: 64px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <a href="index.html"><img src="logo.svg" alt="Rock N Roll Painting" class="logo-img" /></a>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html">Blog</a>
+  </nav>
+  <div class="header-right">
+    <a href="tel:6098925150" class="phone-link">(609) 892-5150</a>
+    <a href="#estimate" class="btn btn-blue">Free Estimate</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg-word">PAINT</div>
+  <div class="hero-stripe"></div>
+
+  <div class="hero-left fade-up d1">
+    <div class="hero-eyebrow">South Jersey's Painting Experts</div>
+    <h1>Bold <span class="ac-blue">Color.</span><br>Clean <span class="ac-yellow">Lines.</span><br>Precision <span class="ac-red">in</span><br>Every Stroke.</h1>
+    <p class="hero-sub">High quality interior and exterior painting across the Jersey Shore. From beach houses to full luxury remodels, we deliver finishes that stand out.</p>
+    <div class="hero-ctas">
+      <a href="#estimate" class="btn btn-blue btn-lg" onclick="document.getElementById('estimate').scrollIntoView({behavior:'smooth'});return false;">Book Your Free Estimate</a>
+      <a href="services.html" class="btn btn-outline btn-lg">Our Services</a>
+    </div>
+  </div>
+
+  <div class="hero-right fade-up d3" id="estimate">
+    <div class="estimate-form">
+      <div class="form-title">Request Your <span>Free Estimate</span></div>
+      <div class="form-sub">No pressure. Just results.</div>
+      <form name="estimate" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="estimate" />
+        <div class="form-grid">
+          <div><label>Full Name</label><input type="text" name="name" placeholder="Your full name" required /></div>
+          <div><label>Phone Number</label><input type="tel" name="phone" placeholder="Your phone" required /></div>
+          <div class="full"><label>Property Address</label><input type="text" name="address" placeholder="Property to be painted" required /></div>
+          <div class="full">
+            <label>Project Type</label>
+            <select name="project_type" required>
+              <option value="" disabled selected>Select project type</option>
+              <option>Interior</option><option>Exterior</option>
+              <option>Full Repaint</option><option>Cabinet Refinishing</option><option>Deck &amp; Fence Painting</option><option>Other Painting Services</option>
+            </select>
+          </div>
+          <div class="full"><label>Project Details</label><textarea name="details" placeholder="Tell us about your project..."></textarea></div>
+          <div class="full"><label>Preferred Appointment Time</label><input type="text" name="appointment" placeholder="e.g. Weekday mornings, Saturday" /></div>
+        </div>
+        <div class="form-submit"><button type="submit" class="btn btn-yellow">Schedule My Estimate</button></div>
+        <p class="form-micro">We respond quickly and respect your time.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="why-inner">
+    <div>
+      <div class="section-tag tag-blue">Why Rock N Roll</div>
+      <h2>South Jersey<br>Painting<br>Done Right</h2>
+      <div class="div-blue"></div>
+      <p class="body-copy">Rock N Roll Painting delivers <strong>detailed interior and exterior paint work</strong> designed to elevate your space. We focus on preparation, clean execution, and finishes that last.<br><br>Whether you're updating a coastal property in Ocean City or completing a luxury remodel in Margate, our team brings <strong>precision and professionalism</strong> to every project.</p>
+      <div class="multi-cta">
+        <a href="#estimate" class="btn btn-blue btn-lg">Get My Free Estimate</a>
+      </div>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-item"><div class="benefit-bar bar-blue"></div><div class="benefit-title">Meticulous Surface Prep</div><div class="benefit-desc">Clean, primed surfaces are the foundation of a lasting finish. We never skip the prep.</div></div>
+      <div class="benefit-item"><div class="benefit-bar bar-yellow"></div><div class="benefit-title">Clean Lines & Detail</div><div class="benefit-desc">Crisp edges, smooth transitions — the kind of finish that gets compliments.</div></div>
+      <div class="benefit-item"><div class="benefit-bar bar-red"></div><div class="benefit-title">Premium Paint Products</div><div class="benefit-desc">Professional-grade paints built for durability and coastal conditions.</div></div>
+      <div class="benefit-item"><div class="benefit-bar bar-blue"></div><div class="benefit-title">Reliable Scheduling</div><div class="benefit-desc">We show up when we say we will. No surprises, no delays.</div></div>
+      <div class="benefit-item"><div class="benefit-bar bar-yellow"></div><div class="benefit-title">Locally Owned</div><div class="benefit-desc">South Jersey born and built. We know the Shore and take pride in our work.</div></div>
+      <div class="benefit-item"><div class="benefit-bar bar-red"></div><div class="benefit-title">Clear Communication</div><div class="benefit-desc">From quote to final walkthrough, you're always in the loop.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="areas">
+  <div class="areas-inner">
+    <div>
+      <div class="section-tag tag-yellow">Where We Work</div>
+      <h2>Proudly<br>Serving<br>South Jersey</h2>
+      <div class="div-yellow"></div>
+      <p class="body-copy">Professional painting throughout the Jersey Shore, from beachfront bungalows to luxury remodels, we bring the same level of craftsmanship to every neighborhood.</p>
+      <div class="areas-list">
+        <div class="area-item"><span class="area-dot dot-blue"></span>Ventnor</div>
+        <div class="area-item"><span class="area-dot dot-yellow"></span>Margate</div>
+        <div class="area-item"><span class="area-dot dot-blue"></span>Longport</div>
+        <div class="area-item"><span class="area-dot dot-yellow"></span>Egg Harbor Twp</div>
+        <div class="area-item"><span class="area-dot dot-blue"></span>Linwood</div>
+        <div class="area-item"><span class="area-dot dot-yellow"></span>Northfield</div>
+        <div class="area-item"><span class="area-dot dot-blue"></span>Somers Point</div>
+        <div class="area-item"><span class="area-dot dot-yellow"></span>Ocean City</div>
+      </div>
+    </div>
+    <div class="map-panel">
+      <div class="map-nj">NJ</div>
+      <div class="map-sub">Jersey Shore Service Area</div>
+      <div class="county-tags">
+        <span class="county-tag ct-blue">Atlantic County</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="about-inner">
+    <div>
+      <div class="section-tag tag-red">About Us</div>
+      <h2>Painting with<br>Precision &<br>Personality</h2>
+      <div class="div-red"></div>
+      <p class="body-copy">At Rock N Roll Painting, we believe great paint work is more than just color on a wall. <strong>It's craftsmanship.</strong><br><br>We specialize in full repaints and detailed finishes that transform homes inside and out. From modern remodels to classic coastal properties, we bring bold color and precision to every surface.<br><br><strong>Reliable. Local. High impact results.</strong></p>
+      <div class="multi-cta">
+        <a href="#estimate" class="btn btn-blue btn-lg">Schedule Your Estimate</a>
+        <a href="tel:6098925150" class="btn btn-outline btn-lg">(609) 892-5150</a>
+      </div>
+    </div>
+    <div class="logo-display">
+      <img src="logo.svg" alt="Rock N Roll Painting" style="width:100%;max-width:340px;height:auto;" />
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Ready to Transform<br>Your Property?</h2>
+  <p>Get a free, no-pressure estimate from South Jersey's most detail-obsessed painters.</p>
+  <a href="#estimate" class="btn btn-yellow btn-lg">Schedule My Free Estimate</a>
+</div>
+
+<footer>
+  <div class="footer-accent-bar"></div>
+  <div class="footer-grid">
+    <div>
+      <img src="logo.svg" alt="Rock N Roll Painting" class="footer-logo-img" />
+      <p class="footer-desc">South Jersey's premier painting contractor. Bold finishes, clean lines, and craftsmanship you can count on.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="services.html">Interior Painting</a></li>
+        <li><a href="services.html">Exterior Painting</a></li>
+        <li><a href="services.html">Full Repaints</a></li>
+        <li><a href="services.html">Cabinet Refinishing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Service Areas</div>
+      <ul class="footer-links">
+        <li><a href="#">Ventnor, NJ</a></li>
+        <li><a href="#">Margate, NJ</a></li>
+        <li><a href="#">Longport, NJ</a></li>
+        <li><a href="#">Ocean City, NJ</a></li>
+        <li><a href="#">Egg Harbor Twp</a></li>
+        <li><a href="#">Somers Point</a></li>
+        <li><a href="#">Linwood / Northfield</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item">📞 <a href="tel:6098925150" style="color:inherit;text-decoration:none;"><strong>(609) 892-5150</strong></a></div>
+      <div class="footer-contact-item">✉ <span class="email-display"></span></div>
+      <div class="footer-contact-item" style="flex-direction:column;gap:3px;">
+        <strong style="color:rgba(255,255,255,0.5);">Hours</strong>
+        <span>Mon–Fri: 8 AM – 6 PM</span>
+        <span>Sat: 9 AM – 2 PM</span>
+        <span>Sun: Closed</span>
+      </div>
+    </div>
+  </div>
+    <div class="footer-bottom">
+    <span>&copy; 2025 Rock N Roll Painting Co. All rights reserved.</span>
+    <span>South Jersey's Premier Painting Contractor</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+  // Email display - split to prevent Cloudflare obfuscation
+  document.querySelectorAll('.email-display').forEach(el => {
+    const u = 'antonio';
+    const d = 'rocknrollpaintingco.com';
+    el.innerHTML = '<a href="mailto:' + u + '@' + d + '" style="color:inherit;text-decoration:none;font-size:13px;">' + u + '@' + d + '</a>';
+  });
+</script>
+</body>
+</html>

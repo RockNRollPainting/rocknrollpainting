@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Rock N Roll Painting – South Jersey Painting Experts</title>
+  <meta name="description" content="Interior painting, exterior painting, and full repaints across South Jersey. Rock N Roll Painting delivers professional finishes for beach homes, luxury remodels, and everything in between." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:#0a0a0a; --ink:#111111; --ink2:#181818; --white:#ffffff;
+      --red:#d92b2b; --red-d:#b82020; --blue:#1e8fc4; --blue-d:#1670a0;
+      --yellow:#f0b429; --yellow-d:#d49b1a; --muted:#888880; --border:rgba(255,255,255,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+    header { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:12px 48px; background:rgba(10,10,10,0.97); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); transition:padding 0.3s; }
+    header.scrolled { padding: 8px 48px; }
+    .logo-text { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:20px; letter-spacing:0.02em; text-transform:uppercase; color:var(--white); text-decoration:none; line-height:1.1; }
+    .logo-text span { color:var(--red); }
+    .footer-logo-text { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:28px; text-transform:uppercase; letter-spacing:0.02em; color:var(--white); line-height:1.1; margin-bottom:16px; }
+    .footer-logo-text span { color:var(--red); }
+    .logo-img { height:52px; width:auto; display:block; transition:height 0.3s; }
+    header.scrolled .logo-img { height:42px; }
+    nav { display:flex; align-items:center; gap:32px; }
+    nav a { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:15px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.65); text-decoration:none; transition:color 0.2s; }
+    nav a:hover, nav a.active { color:var(--white); }
+    .header-right { display:flex; align-items:center; gap:20px; }
+    .phone-link { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:17px; letter-spacing:0.06em; color:var(--white); text-decoration:none; opacity:0.8; transition:opacity 0.2s; }
+    .phone-link:hover { opacity:1; }
+    .btn { display:inline-block; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; padding:11px 22px; border-radius:3px; cursor:pointer; transition:all 0.2s; border:none; outline:none; }
+    .btn-blue { background:var(--blue); color:var(--white); }
+    .btn-blue:hover { background:var(--blue-d); transform:translateY(-1px); box-shadow:0 6px 24px rgba(30,143,196,0.4); }
+    .btn-yellow { background:var(--yellow); color:var(--black); }
+    .btn-yellow:hover { background:var(--yellow-d); transform:translateY(-1px); box-shadow:0 6px 24px rgba(240,180,41,0.4); }
+    .btn-outline { background:transparent; color:var(--white); border:1.5px solid rgba(255,255,255,0.35); }
+    .btn-outline:hover { border-color:var(--white); background:rgba(255,255,255,0.06); }
+    .btn-lg { font-size:15px; padding:15px 34px; }
+
+    /* PAGE HERO */
+    .page-hero { padding:150px 48px 96px; background:var(--ink2); position:relative; overflow:hidden; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 55% 80% at 85% 50%, rgba(30,143,196,0.1) 0%, transparent 60%); }
+    .page-hero-bg { position:absolute; bottom:-50px; right:-10px; font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:240px; color:rgba(255,255,255,0.022); line-height:1; text-transform:uppercase; pointer-events:none; user-select:none; letter-spacing:-0.03em; }
+    .page-hero-inner { max-width:700px; position:relative; z-index:2; }
+    .section-tag { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.18em; text-transform:uppercase; display:flex; align-items:center; gap:8px; margin-bottom:18px; }
+    .tag-blue { color:var(--blue); } .tag-blue::before { content:''; display:block; width:24px; height:2px; background:var(--blue); }
+    .tag-yellow { color:var(--yellow); } .tag-yellow::before { content:''; display:block; width:24px; height:2px; background:var(--yellow); }
+    .tag-red { color:var(--red); } .tag-red::before { content:''; display:block; width:24px; height:2px; background:var(--red); }
+    h1 { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(46px,6vw,78px); line-height:0.93; letter-spacing:-0.02em; text-transform:uppercase; margin-bottom:22px; }
+    .ac-blue { color:var(--blue); } .ac-yellow { color:var(--yellow); } .ac-red { color:var(--red); }
+    .hero-sub { font-size:18px; line-height:1.75; color:rgba(255,255,255,0.6); font-weight:300; margin-bottom:36px; }
+    h2 { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(36px,4.5vw,58px); letter-spacing:-0.01em; text-transform:uppercase; line-height:0.96; }
+    .div-blue   { width:48px; height:3px; background:var(--blue);   margin:16px 0 26px; }
+    .div-yellow { width:48px; height:3px; background:var(--yellow); margin:16px 0 26px; }
+    .div-red    { width:48px; height:3px; background:var(--red);    margin:16px 0 26px; }
+
+    /* SERVICE BLOCKS */
+    .service-block { padding:96px 48px; }
+    .service-block:nth-child(odd)  { background:var(--ink); }
+    .service-block:nth-child(even) { background:var(--ink2); }
+    .service-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; max-width:1200px; margin:0 auto; }
+    .service-inner.rev { direction:rtl; }
+    .service-inner.rev > * { direction:ltr; }
+
+    .service-body { margin-top:22px; font-size:17px; line-height:1.85; color:rgba(255,255,255,0.6); font-weight:300; }
+    .service-list { list-style:none; margin-top:26px; }
+    .service-list li { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:16px; color:rgba(255,255,255,0.75); }
+    .service-list li .arrow { color:var(--yellow); font-weight:700; flex-shrink:0; }
+    .service-cta { margin-top:34px; display:flex; gap:14px; flex-wrap:wrap; }
+
+    .service-visual { background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.07); border-radius:4px; min-height:400px; display:flex; flex-direction:column; justify-content:flex-end; padding:40px; position:relative; overflow:hidden; }
+    .sv-num { position:absolute; top:24px; right:28px; font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:130px; color:rgba(255,255,255,0.035); line-height:1; letter-spacing:-0.05em; }
+    .sv-accent { position:absolute; top:0; left:0; width:4px; height:100%; }
+    .sv-icon { font-size:56px; margin-bottom:20px; position:relative; z-index:1; }
+    .sv-title { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:32px; text-transform:uppercase; letter-spacing:0.01em; position:relative; z-index:1; margin-bottom:6px; }
+    .sv-sub { font-size:14px; color:var(--muted); position:relative; z-index:1; line-height:1.5; }
+
+    /* CTA BAND */
+    .cta-band { background:linear-gradient(135deg,#155f85,var(--blue-d),#155f85); padding:80px 48px; text-align:center; position:relative; overflow:hidden; }
+    .cta-band::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(240,180,41,0.07),transparent); }
+    .cta-band h2 { margin-bottom:16px; }
+    .cta-band p { font-size:18px; color:rgba(255,255,255,0.8); font-weight:300; margin-bottom:36px; }
+
+    /* FOOTER */
+    footer { background:#070707; border-top:1px solid rgba(255,255,255,0.07); padding:64px 48px 40px; }
+    .footer-accent-bar { height:3px; background:linear-gradient(90deg,var(--blue),var(--yellow),var(--red)); margin-bottom:40px; border-radius:2px; }
+    .footer-grid { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+    .footer-logo-img { height:72px; width:auto; margin-bottom:16px; display:block; }
+    .footer-desc { font-size:14px; color:var(--muted); line-height:1.7; max-width:260px; }
+    .footer-col-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.32); margin-bottom:20px; }
+    .footer-links { list-style:none; }
+    .footer-links li { margin-bottom:10px; }
+    .footer-links a { font-size:14px; color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
+    .footer-links a:hover { color:var(--white); }
+    .footer-contact-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:12px; font-size:14px; color:rgba(255,255,255,0.5); }
+    .footer-contact-item strong { color:var(--white); font-weight:500; }
+    .footer-bottom { display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.06); padding-top:28px; font-size:13px; color:rgba(255,255,255,0.28); }
+
+    @media (max-width: 900px) {
+      header { padding: 12px 20px; } nav { display: none; }
+      .page-hero { padding: 105px 20px 72px; }
+      .service-block { padding: 72px 20px; }
+      .service-inner, .service-inner.rev { grid-template-columns:1fr; direction:ltr; gap:40px; }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:36px; }
+      footer { padding:48px 20px 32px; }
+      .footer-bottom { flex-direction:column; gap:8px; text-align:center; }
+      .cta-band { padding:64px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <a href="index.html"><img src="logo.svg" alt="Rock N Roll Painting" class="logo-img" /></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="blog.html">Blog</a>
+  </nav>
+  <div class="header-right">
+    <a href="tel:6098925150" class="phone-link">(609) 892-5150</a>
+    <a href="index.html#estimate" class="btn btn-blue">Free Estimate</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-bg">SERVICES</div>
+  <div class="page-hero-inner">
+    <div class="section-tag tag-blue">What We Do</div>
+    <h1>Interior & Exterior<br>Painting <span class="ac-yellow">Experts</span><br>in South Jersey</h1>
+    <div class="div-blue"></div>
+    <p class="hero-sub">Professional finishes for beach homes, luxury remodels, and full property transformations. We bring precision to every project, every time.</p>
+    <a href="index.html#estimate" class="btn btn-blue btn-lg">Request a Free Estimate</a>
+  </div>
+</div>
+
+<!-- SERVICE 1 -->
+<div class="service-block">
+  <div class="service-inner">
+    <div>
+      <div class="section-tag tag-blue">Service 01</div>
+      <h2>Interior<br>Painting</h2>
+      <div class="div-blue"></div>
+      <p class="service-body">Transform your living space with crisp lines, smooth finishes, and expertly applied color. We handle walls, ceilings, trim, doors, and detailed accents with precision and care. Your home deserves more than a quick coat — it deserves craftsmanship.</p>
+      <ul class="service-list">
+        <li><span class="arrow">→</span>Full home repaints and complete refreshes</li>
+        <li><span class="arrow">→</span>Walls, ceilings, and trim painting</li>
+        <li><span class="arrow">→</span>Seasonal beach home updates</li>
+        <li><span class="arrow">→</span>Doors and detailed accent work</li>
+        <li><span class="arrow">→</span>Ceiling painting and smooth finish repairs</li>
+      </ul>
+      <div class="service-cta">
+        <a href="index.html#estimate" class="btn btn-blue btn-lg">Get My Interior Estimate</a>
+      </div>
+    </div>
+    <div class="service-visual">
+      <div class="sv-accent" style="background:var(--blue);"></div>
+      <div class="sv-num">01</div>
+      <div class="sv-icon">🏠</div>
+      <div class="sv-title">Interior Painting</div>
+      <div class="sv-sub">Walls · Ceilings · Trim · Accents · Doors</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 2 -->
+<div class="service-block">
+  <div class="service-inner rev">
+    <div>
+      <div class="section-tag tag-yellow">Service 02</div>
+      <h2>Exterior<br>Painting</h2>
+      <div class="div-yellow"></div>
+      <p class="service-body">Protect and enhance your property with durable, weather-resistant exterior finishes. We understand the coastal climate and use products designed to withstand South Jersey conditions — salt air, humidity, and everything the shore throws at your home.</p>
+      <ul class="service-list">
+        <li><span class="arrow" style="color:var(--yellow);">→</span>Full exterior repaints</li>
+        <li><span class="arrow" style="color:var(--yellow);">→</span>Trim and architectural detail work</li>
+        <li><span class="arrow" style="color:var(--yellow);">→</span>Deck and railing painting</li>
+        <li><span class="arrow" style="color:var(--yellow);">→</span>Garage doors and shutters</li>
+        <li><span class="arrow" style="color:var(--yellow);">→</span>Weather-resistant coastal coatings</li>
+      </ul>
+      <div class="service-cta">
+        <a href="index.html#estimate" class="btn btn-yellow btn-lg">Get My Exterior Estimate</a>
+      </div>
+    </div>
+    <div class="service-visual" style="border-color:rgba(240,180,41,0.12);">
+      <div class="sv-accent" style="background:var(--yellow);"></div>
+      <div class="sv-num">02</div>
+      <div class="sv-icon">🏡</div>
+      <div class="sv-title">Exterior Painting</div>
+      <div class="sv-sub">Siding · Trim · Decks · Shutters · Garage Doors</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 3 -->
+<div class="service-block">
+  <div class="service-inner">
+    <div>
+      <div class="section-tag tag-red">Service 03</div>
+      <h2>Complete<br>Property<br>Repaints</h2>
+      <div class="div-red"></div>
+      <p class="service-body">Whether you're preparing for resale or transforming your forever home, our full repaint service ensures consistent color, seamless transitions, and long-lasting results from the front door to the back fence. One team. One standard. Zero shortcuts.</p>
+      <ul class="service-list">
+        <li><span class="arrow" style="color:var(--red);">→</span>Full interior + exterior packages</li>
+        <li><span class="arrow" style="color:var(--red);">→</span>Pre-sale property preparation</li>
+        <li><span class="arrow" style="color:var(--red);">→</span>Luxury renovation repaints</li>
+        <li><span class="arrow" style="color:var(--red);">→</span>Color consultation and matching</li>
+        <li><span class="arrow" style="color:var(--red);">→</span>Consistent finish across all surfaces</li>
+      </ul>
+      <div class="service-cta">
+        <a href="index.html#estimate" class="btn btn-blue btn-lg">Book My Full Repaint Estimate</a>
+      </div>
+    </div>
+    <div class="service-visual" style="border-color:rgba(217,43,43,0.12);">
+      <div class="sv-accent" style="background:var(--red);"></div>
+      <div class="sv-num">03</div>
+      <div class="sv-icon">✦</div>
+      <div class="sv-title">Complete Repaints</div>
+      <div class="sv-sub">Full Property · Interior + Exterior · End-to-End</div>
+    </div>
+  </div>
+</div>
+
+<!-- PHOTO GALLERY -->
+<section id="gallery" style="padding:96px 48px;background:var(--ink);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-tag tag-yellow">Our Work</div>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(38px,4.5vw,60px);text-transform:uppercase;letter-spacing:-0.01em;line-height:0.96;margin-bottom:8px;">Project <span style="color:var(--yellow);">Gallery</span></h2>
+    <div style="width:48px;height:3px;background:var(--yellow);margin:16px 0 40px;"></div>
+    <div id="gallery-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;">
+      <div style="grid-column:span 3;text-align:center;padding:60px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:16px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);">Photos coming soon — check back after setup.</div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Ready to Transform<br>Your Property?</h2>
+  <p>Get a free, no-pressure estimate from South Jersey's most detail-obsessed painters.</p>
+  <a href="index.html#estimate" class="btn btn-yellow btn-lg">Schedule My Free Estimate</a>
+</div>
+
+<footer>
+  <div class="footer-accent-bar"></div>
+  <div class="footer-grid">
+    <div>
+      <img src="logo.svg" alt="Rock N Roll Painting" class="footer-logo-img" />
+      <p class="footer-desc">South Jersey's premier painting contractor. Bold finishes, clean lines, and craftsmanship you can count on.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="services.html">Interior Painting</a></li>
+        <li><a href="services.html">Exterior Painting</a></li>
+        <li><a href="services.html">Full Repaints</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Service Areas</div>
+      <ul class="footer-links">
+        <li><a href="#">Ventnor, NJ</a></li>
+        <li><a href="#">Margate, NJ</a></li>
+        <li><a href="#">Longport, NJ</a></li>
+        <li><a href="#">Ocean City, NJ</a></li>
+        <li><a href="#">Egg Harbor Twp</a></li>
+        <li><a href="#">Somers Point</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item">📞 <a href="tel:6098925150" style="color:inherit;text-decoration:none;"><strong>(609) 892-5150</strong></a></div>
+      <div class="footer-contact-item">✉ <span class="email-display"></span></div>
+      <div class="footer-contact-item" style="flex-direction:column;gap:3px;">
+        <strong style="color:rgba(255,255,255,0.5);">Hours</strong>
+        <span>Mon–Fri: 8 AM – 6 PM</span>
+        <span>Sat: 9 AM – 2 PM</span>
+        <span>Sun: Closed</span>
+      </div>
+    </div>
+  </div>
+    <div class="footer-bottom">
+    <span>&copy; 2025 Rock N Roll Painting Co. All rights reserved.</span>
+    <span>South Jersey's Premier Painting Contractor</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+  document.querySelectorAll('.email-display').forEach(el => {
+    const u = 'antonio';
+    const d = 'rocknrollpaintingco.com';
+    el.innerHTML = '<a href="mailto:' + u + '@' + d + '" style="color:inherit;text-decoration:none;font-size:13px;">' + u + '@' + d + '</a>';
+  });
+
+  // Load gallery photos from _data/gallery.json
+  fetch('_data/gallery.json')
+    .then(r => r.json())
+    .then(photos => {
+      const grid = document.getElementById('gallery-grid');
+      const withPhotos = photos.filter(p => p.src);
+      if (!withPhotos.length) return; // keep placeholder
+      grid.innerHTML = '';
+      withPhotos.forEach((photo, i) => {
+        const item = document.createElement('div');
+        item.style.cssText = 'position:relative;overflow:hidden;aspect-ratio:4/3;background:#181818;';
+        item.innerHTML = `
+          <img src="${photo.src}" alt="${photo.caption}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 18px;background:linear-gradient(to top,rgba(10,10,10,0.92),transparent);">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:0.04em;color:#fff;">${photo.caption}</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px;">📍 ${photo.location}</div>
+          </div>`;
+        grid.appendChild(item);
+      });
+    })
+    .catch(() => {}); // silently keep placeholder if no file
+</script>
+</body>
+</html>

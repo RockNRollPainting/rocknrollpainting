@@ -1,0 +1,44 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    files:
+      - name: "all_posts"
+        label: "All Posts"
+        file: "_data/posts.json"
+        fields:
+          - name: "posts"
+            label: "Posts"
+            label_singular: "Post"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Slug (URL-friendly title, no spaces)", name: "slug", widget: "string", hint: "Example: best-paint-colors-2025" }
+              - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "Category", name: "category", widget: "select", options: ["Interior", "Exterior", "Maintenance", "Color Tips", "Jersey Shore"] }
+              - { label: "Short Excerpt (shown on blog card)", name: "excerpt", widget: "text" }
+              - { label: "Featured Image (optional)", name: "image", widget: "image", required: false }
+              - { label: "Full Article Body", name: "body", widget: "text", hint: "Separate paragraphs with a blank line" }
+
+  - name: "gallery"
+    label: "Photo Gallery"
+    files:
+      - name: "all_photos"
+        label: "All Photos"
+        file: "_data/gallery.json"
+        fields:
+          - name: "photos"
+            label: "Photos"
+            label_singular: "Photo"
+            widget: "list"
+            fields:
+              - { label: "Photo", name: "src", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string" }
+              - { label: "Location", name: "location", widget: "string", hint: "Example: Margate, NJ" }
+              - { label: "Category", name: "category", widget: "select", options: ["Interior", "Exterior", "Full Repaint", "Cabinets"] }

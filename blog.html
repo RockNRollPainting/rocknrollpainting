@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Rock N Roll Painting – South Jersey Painting Tips & Advice</title>
+  <meta name="description" content="Expert painting tips, coastal home maintenance advice, and color inspiration from professional painters in South Jersey." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:#0a0a0a; --ink:#111111; --ink2:#181818; --white:#ffffff;
+      --red:#d92b2b; --blue:#1e8fc4; --blue-d:#1670a0;
+      --yellow:#f0b429; --yellow-d:#d49b1a; --muted:#888880; --border:rgba(255,255,255,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+    header { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:12px 48px; background:rgba(10,10,10,0.97); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); transition:padding 0.3s; }
+    header.scrolled { padding:8px 48px; }
+    .logo-img { height:52px; width:auto; display:block; transition:height 0.3s; }
+    header.scrolled .logo-img { height:42px; }
+    nav { display:flex; align-items:center; gap:32px; }
+    nav a { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:15px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.65); text-decoration:none; transition:color 0.2s; }
+    nav a:hover, nav a.active { color:var(--white); }
+    .header-right { display:flex; align-items:center; gap:20px; }
+    .phone-link { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:17px; letter-spacing:0.06em; color:var(--white); text-decoration:none; opacity:0.8; transition:opacity 0.2s; }
+    .phone-link:hover { opacity:1; }
+    .btn { display:inline-block; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; padding:11px 22px; border-radius:3px; cursor:pointer; transition:all 0.2s; border:none; outline:none; }
+    .btn-blue { background:var(--blue); color:var(--white); }
+    .btn-blue:hover { background:var(--blue-d); transform:translateY(-1px); }
+    .btn-lg { font-size:15px; padding:15px 34px; }
+    .page-hero { padding:150px 48px 96px; background:var(--ink2); position:relative; overflow:hidden; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 45% 70% at 15% 50%, rgba(240,180,41,0.08) 0%, transparent 55%); }
+    .page-hero-bg { position:absolute; bottom:-50px; right:-10px; font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:240px; color:rgba(255,255,255,0.022); line-height:1; text-transform:uppercase; pointer-events:none; user-select:none; letter-spacing:-0.03em; }
+    .page-hero-inner { max-width:700px; position:relative; z-index:2; }
+    .section-tag { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.18em; text-transform:uppercase; display:flex; align-items:center; gap:8px; margin-bottom:18px; }
+    .tag-yellow { color:var(--yellow); } .tag-yellow::before { content:''; display:block; width:24px; height:2px; background:var(--yellow); }
+    .tag-blue { color:var(--blue); } .tag-blue::before { content:''; display:block; width:24px; height:2px; background:var(--blue); }
+    h1 { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(46px,6vw,78px); line-height:0.93; letter-spacing:-0.02em; text-transform:uppercase; margin-bottom:22px; }
+    .ac-blue{color:var(--blue);} .ac-yellow{color:var(--yellow);}
+    .hero-sub { font-size:18px; line-height:1.75; color:rgba(255,255,255,0.6); font-weight:300; }
+    .div-yellow { width:48px; height:3px; background:var(--yellow); margin:16px 0 26px; }
+    .blog-section { padding:96px 48px; background:var(--ink); }
+    .blog-intro { max-width:720px; margin-bottom:56px; font-size:17px; line-height:1.9; color:rgba(255,255,255,0.6); font-weight:300; }
+    .blog-intro strong { color:var(--white); font-weight:500; }
+    .loading { text-align:center; padding:80px; font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:18px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+    .blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+    .blog-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); display:flex; flex-direction:column; transition:background 0.25s, border-color 0.25s, transform 0.25s; overflow:hidden; cursor:pointer; text-decoration:none; color:inherit; }
+    .blog-card:hover { background:rgba(255,255,255,0.055); border-color:rgba(30,143,196,0.3); transform:translateY(-3px); }
+    .blog-card.featured { grid-column:span 2; }
+    .card-image { position:relative; overflow:hidden; height:220px; display:flex; align-items:center; justify-content:center; }
+    .blog-card.featured .card-image { height:280px; }
+    .card-image img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .card-num { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:160px; color:rgba(255,255,255,0.04); line-height:1; position:absolute; }
+    .card-cat { position:absolute; top:18px; left:18px; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:11px; letter-spacing:0.15em; text-transform:uppercase; padding:5px 11px; border-radius:2px; z-index:2; }
+    .card-stripe { position:absolute; bottom:0; left:0; right:0; height:4px; }
+    .card-body { padding:30px 30px 34px; flex:1; display:flex; flex-direction:column; }
+    .card-meta { font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+    .card-title { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(20px,2.2vw,28px); line-height:1.06; text-transform:uppercase; letter-spacing:0.01em; color:var(--white); margin-bottom:14px; }
+    .card-excerpt { font-size:14px; line-height:1.7; color:rgba(255,255,255,0.5); font-weight:300; flex:1; }
+    .card-read { margin-top:22px; display:inline-flex; align-items:center; gap:8px; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); transition:gap 0.2s; }
+    .card-read::after { content:'→'; }
+    .blog-card:hover .card-read { gap:12px; }
+    /* MODAL */
+    .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.93); z-index:200; overflow-y:auto; padding:40px 20px; }
+    .modal-overlay.open { display:flex; align-items:flex-start; justify-content:center; }
+    .modal { background:var(--ink2); border:1px solid rgba(255,255,255,0.08); border-radius:4px; max-width:760px; width:100%; padding:56px 64px; position:relative; margin:auto; }
+    .modal-close { position:absolute; top:24px; right:28px; background:none; border:none; color:rgba(255,255,255,0.4); font-size:32px; cursor:pointer; line-height:1; transition:color 0.2s; }
+    .modal-close:hover { color:var(--white); }
+    .modal-cat { display:inline-block; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:11px; letter-spacing:0.15em; text-transform:uppercase; padding:5px 11px; border-radius:2px; background:var(--blue); color:var(--white); margin-bottom:20px; }
+    .modal-title { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(30px,4vw,50px); line-height:0.97; text-transform:uppercase; letter-spacing:-0.01em; margin-bottom:16px; }
+    .modal-meta { font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:32px; padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,0.08); }
+    .modal-img { width:100%; max-height:360px; object-fit:cover; border-radius:3px; margin-bottom:32px; display:none; }
+    .modal-img.show { display:block; }
+    .modal-body { font-size:17px; line-height:1.9; color:rgba(255,255,255,0.7); font-weight:300; }
+    .modal-body p { margin-bottom:18px; }
+    .modal-cta { margin-top:40px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.08); }
+    /* NEWSLETTER */
+    .newsletter { background:var(--ink2); padding:96px 48px; text-align:center; }
+    .newsletter h2 { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(34px,4vw,52px); text-transform:uppercase; letter-spacing:-0.01em; margin-bottom:14px; }
+    .newsletter p { font-size:17px; color:rgba(255,255,255,0.6); font-weight:300; margin-bottom:36px; max-width:480px; margin-left:auto; margin-right:auto; }
+    .newsletter-form { display:flex; max-width:460px; margin:0 auto; }
+    .newsletter-form input { flex:1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-right:none; color:var(--white); font-family:'Barlow',sans-serif; font-size:15px; padding:14px 18px; outline:none; border-radius:3px 0 0 3px; transition:border-color 0.2s; }
+    .newsletter-form input:focus { border-color:var(--blue); }
+    .newsletter-form button { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:14px; letter-spacing:0.1em; text-transform:uppercase; background:var(--blue); color:var(--white); border:none; padding:14px 26px; cursor:pointer; border-radius:0 3px 3px 0; transition:background 0.2s; }
+    .newsletter-form button:hover { background:var(--blue-d); }
+    footer { background:#070707; border-top:1px solid rgba(255,255,255,0.07); padding:64px 48px 40px; }
+    .footer-accent-bar { height:3px; background:linear-gradient(90deg,var(--blue),var(--yellow),var(--red)); margin-bottom:40px; border-radius:2px; }
+    .footer-grid { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+    .footer-logo-img { height:72px; width:auto; margin-bottom:16px; display:block; }
+    .footer-desc { font-size:14px; color:var(--muted); line-height:1.7; max-width:260px; }
+    .footer-col-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.32); margin-bottom:20px; }
+    .footer-links { list-style:none; }
+    .footer-links li { margin-bottom:10px; }
+    .footer-links a { font-size:14px; color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
+    .footer-links a:hover { color:var(--white); }
+    .footer-contact-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:12px; font-size:14px; color:rgba(255,255,255,0.5); }
+    .footer-contact-item strong { color:var(--white); font-weight:500; }
+    .footer-bottom { display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.06); padding-top:28px; font-size:13px; color:rgba(255,255,255,0.28); }
+    @media (max-width:900px) {
+      header { padding:12px 20px; } header.scrolled { padding:8px 20px; } nav { display:none; }
+      .page-hero { padding:105px 20px 72px; }
+      .blog-section { padding:72px 20px; }
+      .blog-grid { grid-template-columns:1fr; }
+      .blog-card.featured { grid-column:span 1; }
+      .newsletter { padding:72px 20px; }
+      .newsletter-form { flex-direction:column; }
+      .newsletter-form input { border-right:1px solid rgba(255,255,255,0.12); border-bottom:none; border-radius:3px 3px 0 0; }
+      .newsletter-form button { border-radius:0 0 3px 3px; }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:36px; }
+      footer { padding:48px 20px 32px; }
+      .footer-bottom { flex-direction:column; gap:8px; text-align:center; }
+      .modal { padding:36px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <a href="index.html"><img src="logo.svg" alt="Rock N Roll Painting" class="logo-img" /></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="blog.html" class="active">Blog</a>
+  </nav>
+  <div class="header-right">
+    <a href="tel:6098925150" class="phone-link">(609) 892-5150</a>
+    <a href="index.html#estimate" class="btn btn-blue">Free Estimate</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-bg">BLOG</div>
+  <div class="page-hero-inner">
+    <div class="section-tag tag-yellow">The Rock N Roll Blog</div>
+    <h1>Paint Tips.<br>Shore <span class="ac-blue">Inspiration.</span><br>Real Advice.</h1>
+    <div class="div-yellow"></div>
+    <p class="hero-sub">Expert tips, coastal maintenance advice, and color inspiration from professional painters in South Jersey.</p>
+  </div>
+</div>
+
+<section class="blog-section">
+  <p class="blog-intro">Welcome to the Rock N Roll Painting Blog, your trusted source for <strong>practical painting advice</strong>, coastal home maintenance tips, and inspiration for your next interior or exterior project. Insights from real projects across <strong>Ventnor, Margate, Ocean City,</strong> and surrounding South Jersey communities.</p>
+  <div id="blog-grid" class="blog-grid">
+    <div class="loading">Loading posts...</div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="section-tag tag-blue" style="justify-content:center;">Stay in the Loop</div>
+  <h2>Get <span class="ac-yellow">Shore</span> Painting<br>Tips in Your Inbox</h2>
+  <p>No spam. Just practical advice for homeowners who care about their property.</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="Your email address" />
+    <button type="submit">Subscribe</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-accent-bar"></div>
+  <div class="footer-grid">
+    <div>
+      <img src="logo.svg" alt="Rock N Roll Painting" class="footer-logo-img" />
+      <p class="footer-desc">South Jersey's premier painting contractor. Bold finishes, clean lines, and craftsmanship you can count on.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="services.html">Interior Painting</a></li>
+        <li><a href="services.html">Exterior Painting</a></li>
+        <li><a href="services.html">Full Repaints</a></li>
+        <li><a href="services.html">Cabinet Refinishing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Service Areas</div>
+      <ul class="footer-links">
+        <li><a href="#">Ventnor, NJ</a></li>
+        <li><a href="#">Margate, NJ</a></li>
+        <li><a href="#">Longport, NJ</a></li>
+        <li><a href="#">Ocean City, NJ</a></li>
+        <li><a href="#">Egg Harbor Twp</a></li>
+        <li><a href="#">Somers Point</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item">📞 <a href="tel:6098925150" style="color:inherit;text-decoration:none;"><strong>(609) 892-5150</strong></a></div>
+      <div class="footer-contact-item">✉ <span class="email-display"></span></div>
+      <div class="footer-contact-item" style="flex-direction:column;gap:3px;">
+        <strong style="color:rgba(255,255,255,0.5);">Hours</strong>
+        <span>Mon–Fri: 8 AM – 6 PM</span>
+        <span>Sat: 9 AM – 2 PM</span>
+        <span>Sun: Closed</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Rock N Roll Painting Co. All rights reserved.</span>
+    <span>South Jersey's Premier Painting Contractor</span>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modal-cat" class="modal-cat"></div>
+    <div id="modal-title" class="modal-title"></div>
+    <div id="modal-meta" class="modal-meta"></div>
+    <img id="modal-img" class="modal-img" src="" alt="" />
+    <div id="modal-body" class="modal-body"></div>
+    <div class="modal-cta">
+      <a href="index.html#estimate" class="btn btn-blue btn-lg">Get a Free Estimate</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+
+  // Email anti-obfuscation
+  document.querySelectorAll('.email-display').forEach(el => {
+    const u = 'antonio', d = 'rocknrollpaintingco.com';
+    el.innerHTML = '<a href="mailto:' + u + '@' + d + '" style="color:inherit;text-decoration:none;font-size:13px;">' + u + '@' + d + '</a>';
+  });
+
+  const palette = [
+    { bg:'rgba(30,143,196,0.14)',  stripe:'#1e8fc4', catBg:'#1e8fc4',  catColor:'#fff' },
+    { bg:'rgba(240,180,41,0.12)',  stripe:'#f0b429', catBg:'#f0b429',  catColor:'#000' },
+    { bg:'rgba(217,43,43,0.12)',   stripe:'#d92b2b', catBg:'#d92b2b',  catColor:'#fff' },
+    { bg:'rgba(30,143,196,0.10)',  stripe:'#1e8fc4', catBg:'#1e8fc4',  catColor:'#fff' },
+    { bg:'rgba(240,180,41,0.10)',  stripe:'#f0b429', catBg:'#f0b429',  catColor:'#000' },
+  ];
+
+  function fmtDate(s) {
+    return new Date(s + 'T00:00:00').toLocaleDateString('en-US', { month:'long', year:'numeric' });
+  }
+
+  function toHTML(text) {
+    return (text || '').split('\n\n').filter(p => p.trim()).map(p => '<p>' + p.trim() + '</p>').join('');
+  }
+
+  function openModal(post) {
+    document.getElementById('modal-cat').textContent = post.category;
+    document.getElementById('modal-title').textContent = post.title;
+    document.getElementById('modal-meta').textContent = fmtDate(post.date);
+    document.getElementById('modal-body').innerHTML = toHTML(post.body || post.excerpt);
+    const img = document.getElementById('modal-img');
+    if (post.image) { img.src = post.image; img.alt = post.title; img.classList.add('show'); }
+    else { img.classList.remove('show'); }
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('modal-overlay').addEventListener('click', e => { if (e.target.id === 'modal-overlay') closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  fetch('_data/posts.json')
+    .then(r => r.json())
+    .then(posts => {
+      const grid = document.getElementById('blog-grid');
+      if (!posts || !posts.length) {
+        grid.innerHTML = '<div class="loading">No posts yet. Check back soon.</div>';
+        return;
+      }
+      grid.innerHTML = '';
+      posts.forEach((post, i) => {
+        const c = palette[i % palette.length];
+        const featured = i === 0;
+        const card = document.createElement('a');
+        card.className = 'blog-card' + (featured ? ' featured' : '');
+        card.href = '#';
+        card.addEventListener('click', e => { e.preventDefault(); openModal(post); });
+        card.innerHTML = `
+          <div class="card-image" style="background:linear-gradient(135deg,${c.bg},rgba(10,10,10,0.9));">
+            ${post.image ? `<img src="${post.image}" alt="${post.title}" />` : ''}
+            <div class="card-num">${String(i+1).padStart(2,'0')}</div>
+            <div class="card-cat" style="background:${c.catBg};color:${c.catColor};">${post.category}${featured ? ' · Featured' : ''}</div>
+            <div class="card-stripe" style="background:${c.stripe};"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">${fmtDate(post.date)}</div>
+            <div class="card-title">${post.title}</div>
+            <p class="card-excerpt">${post.excerpt}</p>
+            <span class="card-read">Read the Article</span>
+          </div>`;
+        grid.appendChild(card);
+      });
+    })
+    .catch(() => {
+      document.getElementById('blog-grid').innerHTML = '<div class="loading">Could not load posts.</div>';
+    });
+</script>
+</body>
+</html>
